@@ -1,27 +1,26 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Layout: Flex for side-by-side */
+
+
 body {
     background-color: #ffe5ed;
     display: flex;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
     font-family: Arial, sans-serif;
 }
 
-/* Container for Logo and Strawberry */
 .container {
     display: flex;
     width: 100%;
     height: 100vh;
 }
 
-/* Logo Container */
 .logo-container {
     display: flex;
     align-items: center;
@@ -29,7 +28,7 @@ body {
     width: 20vw;
     background: transparent;
     padding: 20px;
-    margin-left: 130px; /* Added margin to prevent cutoff */
+    margin-left: 130px; 
 }
 
 .logo img {
@@ -38,7 +37,8 @@ body {
 }
 
 
-/* Container for 3D Perspective */
+
+/* container for 3D perspective */
 .strawberry-container {
     display: flex;
     justify-content: center;
@@ -46,10 +46,10 @@ body {
     perspective: 1000px;  
 }
 
-/* Strawberry Wrapper */
+/* strawberry wrapper */
 .strawberry {
     position: relative;
-    width: 500px;
+    width: 600px;
     height: 900px;
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
@@ -59,7 +59,7 @@ body {
     margin-bottom: 100px;
 }
 
-/* Strawberry Layers */
+/* strawberry layers */
 .layer {
     position: absolute;
     width: 100%;
@@ -99,19 +99,58 @@ body {
     z-index: -1;
     filter: blur(8px);
     opacity: 0.7;
-    pointer-events: none;  /* Prevent interaction issues */
+    pointer-events: none;  
 }
 
-/* Optional: Adjust shadow opacity when spinning for a dynamic feel */
+
 .strawberry:hover + .shadow {
-    opacity: 0.5;  /* Slight fade while spinning */
+    opacity: 0.5;  
 }
 
 
+/* header */
+.main-header {
+    width: 100%;
+    background: transparent;  
+    position: fixed;  
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 40px;  
+    font-family: 'Poppins', sans-serif;  
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;  
+    font-size: 18px;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, transform 0.3s ease;  
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #3b0202;  
+    transform: scale(1.1);  
+}
+
+@media (max-width: 800px) {
+    .nav-bar {
+        gap: 20px;
+        font-size: 16px;
+    }
+}
 
 
-
-/* Squiggly Text Around the Strawberry */
+/* text around the strawberry */
 .squiggly-text {
     position: absolute;
     left: 60%; 
@@ -143,9 +182,14 @@ body {
     50% { background-color: white; }
 }
 
+/*info text on home*/
 
 
-/* Responsive Layout for Tablets and Phones */
+
+/* about me on home */
+
+
+/* responsive layout for tablets and phones */
 @media (max-width: 576px) {
     body {
       padding: 10px;

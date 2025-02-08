@@ -16,7 +16,7 @@ function typeEffect() {
 
     if (!isDeleting && charIndex === currentWord.length + 1) {
         isDeleting = true;
-        setTimeout(typeEffect, 1000); // Pause before deleting
+        setTimeout(typeEffect, 1000); 
         return;
     }
 
