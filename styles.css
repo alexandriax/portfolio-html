@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Layout: Flex for side-by-side */
+body {
+    background-color: #ffe5ed;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for Logo and Strawberry */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    background: transparent;
+    padding: 20px;
+    margin-left: 130px; /* Added margin to prevent cutoff */
+}
+
+.logo img {
+    height: 80vh;
+    object-fit: contain;
+}
+
+
+/* Container for 3D Perspective */
+.strawberry-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;  
+}
+
+/* Strawberry Wrapper */
+.strawberry {
+    position: relative;
+    width: 500px;
+    height: 900px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    transform: rotateY(0deg);
+    will-change: transform;
+    margin-left: 170px;
+    margin-bottom: 100px;
+}
+
+/* Strawberry Layers */
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    backface-visibility: visible;  
+    transform-origin: center;
+    opacity: 1;
+    filter: blur(0px);
+}
+
+
+.layer-1 { transform: rotateY(0deg) translateZ(8px); }
+.layer-2 { transform: rotateY(0deg) translateZ(6px); }
+.layer-3 { transform: rotateY(0deg) translateZ(4px); }
+.layer-4 { transform: rotateY(0deg) translateZ(2px); }
+
+
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.strawberry:hover {
+    animation: spin 4s linear infinite alternate; 
+}
+
+.shadow {
+    position: absolute;
+    bottom: 30px;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4), transparent);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.7;
+    pointer-events: none;  /* Prevent interaction issues */
+}
+
+/* Optional: Adjust shadow opacity when spinning for a dynamic feel */
+.strawberry:hover + .shadow {
+    opacity: 0.5;  /* Slight fade while spinning */
+}
+
+
+
+
+
+/* Squiggly Text Around the Strawberry */
+.squiggly-text {
+    position: absolute;
+    left: 60%; 
+    top: 50%;  
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    z-index: 5; 
+    pointer-events: none; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    width: 600px; 
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: white;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { background-color: transparent; }
+    50% { background-color: white; }
+}
+
+
+
+/* Responsive Layout for Tablets and Phones */
+@media (max-width: 576px) {
+    body {
+      padding: 10px;
+    }
+
+    .container {
+        flex-direction: row-reverse;  
+    
+    }
+
+    .logo-container {
+        width: 100%;  
+        height: 100%;
+        margin-bottom: 10px;
+        margin-left: 1px;
+    }
+
+    .logo img {
+        height: 500px;
+        width: 500px;  
+        margin-left: 10px; 
+    }
+
+    .strawberry {
+        width: 400px;
+        height: 400px;
+        margin-top: 1000px;
+        margin-right: 375px;
+    }
+
+    .squiggly-text {
+        font-size: 20px;
+        transform: translateX(-220px) translateY(-50%) rotate(-90deg);
+        margin-top: 500px;
+
+    }
+
+    .shadow {
+        width: 150px;
+        bottom: -400px;
+        filter: blur(4px);
+        transform: translateX(-325px);
+    }
+}
+
+
+
+
